@@ -1,0 +1,248 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:jsf="http://xmlns.jcp.org/jsf"
+                template="/resources/#{coreInfo.decorator}/decorator.xhtml">
+
+
+<ui:define name="title"> 
+	<h:outputText value="#{msgsSM['manageSysMap.title.create']}" 
+				  rendered="#{(! manageSysMapController.readOnly) and (manageSysMapController.selectedEntity.id == null)}" />
+   	<h:outputText value="#{msgsSM['manageSysMap.title.update']}" 
+   				  rendered="#{(! manageSysMapController.readOnly) and (manageSysMapController.selectedEntity.id != null)}" />
+    <h:outputText value="#{msgsSM['manageSysMap.title.retrieve']}" rendered="#{manageSysMapController.readOnly}" />
+</ui:define>
+
+<ui:define name="sm_owner"> 
+<!-- 	<h:outputText value="#{manageSysMapController.selectedEntity.academic_id}" /> -->
+<!-- 	            	tem que pegar o usuario logado e substituir : (manageSysMapController.selectedEntity.academic_id == 1) -->
+	<h:outputText value="#{msgsSM['manageSysMap.owner']}" rendered="#{manageSysMapController.selectedEntity.academic_id == 1}" />
+</ui:define>
+
+	
+<ui:define name="body">
+	<ui:decorate template="/resources/sae/form.xhtml">
+		<ui:param name="formName" value="#{msgsSM['manageSysMap.title.formulario']}" />
+		<h:form id="form" pt:class="form-horizontal">
+
+				<h:panelGroup id="academic_idField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:academic_id" />
+						<ui:param name="label" value="academic id" />
+						<p:inputText id="academic_id" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="put the academic id to this sysmap" 
+									 value="#{manageSysMapController.selectedEntity.academic_id}"  required="true">
+							<p:ajax event="blur" update="academic_idField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+ 
+				<h:panelGroup id="nomeField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:nome" />
+						<ui:param name="label" value="#{msgsSM['manageSysMap.title.name']}" />
+						<p:inputText id="nome" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="#{msgsSM['manageSysMap.placeholder.name']}" 
+									 value="#{manageSysMapController.selectedEntity.name}"  required="true">
+							<p:ajax event="blur" update="nomeField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+
+				<h:panelGroup id="objectiveField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:objective" />
+						<ui:param name="label" value="#{msgsSM['manageSysMap.title.objective']}" />
+						<p:inputText id="objective" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="#{msgsSM['manageSysMap.placeholder.objective']}" 
+									 value="#{manageSysMapController.selectedEntity.objective}"  required="true">
+							<p:ajax event="blur" update="objectiveField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+
+				<h:panelGroup id="searchStringField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:searchString" />
+						<ui:param name="label" value="#{msgsSM['manageSysMap.title.searchString']}" />
+						<p:inputText id="searchString" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="#{msgsSM['manageSysMap.placeholder.searchString']}" 
+									 value="#{manageSysMapController.selectedEntity.searchString}"  required="true">
+							<p:ajax event="blur" update="searchStringField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+
+				<h:panelGroup id="periodField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:period" />
+						<ui:param name="label" value="#{msgsSM['manageSysMap.title.period']}" />
+						<p:inputText id="period" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="#{msgsSM['manageSysMap.placeholder.period']}" 
+									 value="#{manageSysMapController.selectedEntity.period}"  required="true">
+							<p:ajax event="blur" update="objectiveField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+
+				<h:panelGroup id="areaField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:area" />
+						<ui:param name="label" value="#{msgsSM['manageSysMap.title.area']}" />
+						<p:inputText id="area" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="#{msgsSM['manageSysMap.placeholder.area']}" 
+									 value="#{manageSysMapController.selectedEntity.area}"  required="true">
+							<p:ajax event="blur" update="areaField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+
+				<h:panelGroup id="publicationTypeField">
+					<ui:decorate template="/resources/sae/formfield.xhtml">
+						<ui:param name="fieldName" value="form:publicationType" />
+						<ui:param name="label" value="#{msgsSM['manageSysMap.title.publicationType']}" />
+						<p:inputText id="publicationType" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
+									 pt:placeholder="#{msgsSM['manageSysMap.placeholder.publicationType']}" 
+									 value="#{manageSysMapController.selectedEntity.publicationTypes}"  required="true">
+							<p:ajax event="blur" update="publicationTypeField" />
+						</p:inputText>
+					</ui:decorate>
+				</h:panelGroup>
+				
+				
+					 
+				<ui:decorate template="/resources/sae/formbutton.xhtml">
+					<h:panelGroup class="form-group">	
+		
+            			<h:panelGroup class="col-sm-2" style="margin-bottom: 10px">
+            				<a class="btn btn-block btn-warning btn-social" jsf:immediate="true"  jsf:action="#{manageSysMapController.list}">
+            					<i class="fa fa-rotate-left"></i> 
+            					<h:outputText value="#{msgs['crud.button.back']}"/>
+            				</a>
+                		</h:panelGroup>
+						
+						<h:panelGroup class="col-sm-3">
+							<a  class="btn btn-block btn-info btn-social" jsf:action="#{manageSysMapController.save}" 
+								jsf:update=":form :globalMessages" jsf:rendered="#{!manageSysMapController.readOnly}"><i class="fa  fa-save"></i> 
+								<h:outputText value="#{msgs['crud.button.save']}"/>
+							</a>
+                		</h:panelGroup>
+   
+                		<h:panelGroup class="col-sm-3" style="margin-bottom: 10px">
+            				<a class="btn btn-block btn-info btn-social" jsf:immediate="true"  jsf:action="#{manageControlArticleController.list}" jsf:rendered="#{manageSysMapController.readOnly}">
+            					<i class="fa  fa-file-text"></i> 
+            					<h:outputText value="#{msgsSM['manageControlArticle.title']}"/>
+            				</a>
+                		</h:panelGroup>
+                		<h:panelGroup class="col-sm-3" style="margin-bottom: 10px">
+            				<a class="btn btn-block btn-info btn-social" jsf:immediate="true"  jsf:action="#{manageResearchQuestionController.list}" jsf:rendered="#{manageSysMapController.readOnly}">
+            					<i class="fa  fa-file-text"></i> 
+            					<h:outputText value="#{msgsSM['manageResearchQuestion.title']}"/>
+            				</a>
+                		</h:panelGroup>
+                		<h:panelGroup class="col-sm-3" style="margin-bottom: 10px">
+            				<a class="btn btn-block btn-info btn-social" jsf:immediate="true"  jsf:action="#{manageCriteriaController.list}" jsf:rendered="#{manageSysMapController.readOnly}">
+            					<i class="fa  fa-file-text"></i> 
+            					<h:outputText value="#{msgsSM['manageCriteria.title']}"/>
+            				</a>
+                		</h:panelGroup>
+					</h:panelGroup>
+				</ui:decorate>
+		</h:form>
+	</ui:decorate>
+
+	<ui:fragment rendered="#{manageSysMapController.readOnly}">
+		<ui:decorate template="/resources/sae/form.xhtml">
+				<ui:param name="formName" value="#{msgsSM['manageControlArticle.title.box.list']}" />            	
+		       	<h:form id="listingFormControlArticle" style="margin-bottom: 25px" >
+		       		<p:dataTable 
+			   				 	widgetVar="listingTable"
+		           			    rowIndexVar="rowIndex"
+		               			tableStyleClass="table table-bordered table-striped"
+		                  		value="#{manageControlArticleController.lazyEntities}" 
+		                   		var="entity" 
+		                   		rows="#{manageControlArticleController.maxDataTableRowsPerPage}" 
+		                   		rowsPerPageTemplate="#{manageControlArticleController.halfMaxDataTableRowsPerPage},#{manageControlArticleController.maxDataTableRowsPerPage},#{manageControlArticleController.doubleMaxDataTableRowsPerPage}"
+		                   		paginator="true" 
+		                   		lazy="true" 
+		                   		selection="#{manageControlArticleController.selectedEntity}" 
+		                  		selectionMode="single" 
+		                  		paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" 
+		                  		paginatorPosition="bottom" 
+		                  		loadingMessage="#{msgs['text.ajax.loading']}" 
+		                   		emptyMessage="#{manageControlArticleController.filtering ? msgsSM['manageControlArticle.text.noEntitiesFiltered'] : msgsSM['manageControlArticle.text.noEntities']}">
+														
+		      			<p:column headerText="#{msgsSM['manageControlArticle.title.description']}"  style="text-align: center; width:50%;"> 
+		           			<h:outputText value="#{entity.description}" />
+		           		</p:column>
+		        	</p:dataTable>
+		       	</h:form>	        
+		</ui:decorate>
+	</ui:fragment>
+
+	<ui:fragment rendered="#{manageSysMapController.readOnly}">
+		<ui:decorate template="/resources/sae/form.xhtml">
+				<ui:param name="formName" value="#{msgsSM['manageCriteria.title.box.list']}" />            	
+		       	<h:form id="listingFormCriteria" style="margin-bottom: 25px" >
+		       		<p:dataTable 
+			   				 	widgetVar="listingTable"
+		           			    rowIndexVar="rowIndex"
+		               			tableStyleClass="table table-bordered table-striped"
+		                  		value="#{manageCriteriaController.lazyEntities}" 
+		                   		var="entity" 
+		                   		rows="#{manageCriteriaController.maxDataTableRowsPerPage}" 
+		                   		rowsPerPageTemplate="#{manageCriteriaController.halfMaxDataTableRowsPerPage},#{manageCriteriaController.maxDataTableRowsPerPage},#{manageCriteriaController.doubleMaxDataTableRowsPerPage}"
+		                   		paginator="true" 
+		                   		lazy="true" 
+		                   		selection="#{manageCriteriaController.selectedEntity}" 
+		                  		selectionMode="single" 
+		                  		paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" 
+		                  		paginatorPosition="bottom" 
+		                  		loadingMessage="#{msgs['text.ajax.loading']}" 
+		                   		emptyMessage="#{manageCriteriaController.filtering ? msgsSM['manageControlArticle.text.noEntitiesFiltered'] : msgsSM['manageControlArticle.text.noEntities']}">
+														
+		      			<p:column headerText="#{msgsSM['manageControlArticle.title.description']}"  style="text-align: center; width:50%;"> 
+		           			<h:outputText value="#{entity.description}" />
+		           		</p:column>
+		        	</p:dataTable>
+		       	</h:form>	        
+		</ui:decorate>
+	</ui:fragment>
+
+	<ui:fragment rendered="#{manageSysMapController.readOnly}">
+		<ui:decorate template="/resources/sae/form.xhtml">
+				<ui:param name="formName" value="#{msgsSM['manageResearchQuestion.title.box.list']}" />            	
+		       	<h:form id="listingFormResearchQuestion" style="margin-bottom: 25px" >
+		       		<p:dataTable 
+			   				 	widgetVar="listingTable"
+		           			    rowIndexVar="rowIndex"
+		               			tableStyleClass="table table-bordered table-striped"
+		                  		value="#{manageResearchQuestionController.lazyEntities}" 
+		                   		var="entity" 
+		                   		rows="#{manageResearchQuestionController.maxDataTableRowsPerPage}" 
+		                   		rowsPerPageTemplate="#{manageResearchQuestionController.halfMaxDataTableRowsPerPage},#{manageResearchQuestionController.maxDataTableRowsPerPage},#{manageCriteriaController.doubleMaxDataTableRowsPerPage}"
+		                   		paginator="true" 
+		                   		lazy="true" 
+		                   		selection="#{manageResearchQuestionController.selectedEntity}" 
+		                  		selectionMode="single" 
+		                  		paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" 
+		                  		paginatorPosition="bottom" 
+		                  		loadingMessage="#{msgs['text.ajax.loading']}" 
+		                   		emptyMessage="#{manageResearchQuestionController.filtering ? msgsSM['manageControlArticle.text.noEntitiesFiltered'] : msgsSM['manageControlArticle.text.noEntities']}">
+														
+		      			<p:column headerText="#{msgsSM['manageControlArticle.title.description']}"  style="text-align: center; width:50%;"> 
+		           			<h:outputText value="#{entity.description}" />
+		           		</p:column>
+		        	</p:dataTable>
+		       	</h:form>	        
+		</ui:decorate>
+	</ui:fragment>
+
+	
+
+	
+</ui:define>
+</ui:composition>

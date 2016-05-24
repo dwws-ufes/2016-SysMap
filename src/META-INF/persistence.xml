@@ -13,6 +13,7 @@
 		<class>br.ufes.inf.nemo.marvin.sysmap.domain.ResearchQuestion</class>
 		<class>br.ufes.inf.nemo.marvin.sysmap.domain.Criteria</class>
 		<class>br.ufes.inf.nemo.marvin.sysmap.domain.ControlArticle</class>
+		<class>br.ufes.inf.nemo.marvin.sysmap.domain.RawResult</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>

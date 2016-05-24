@@ -27,5 +27,10 @@ public class ManageSysMapServiceBean extends CrudServiceBean<SysMap> implements 
 	protected SysMap createNewEntity() {
 		return new SysMap();
 	}
+	
+	@Override
+	public SysMap retrieveByName(String x) {
+		return sysMapDAO.retrieveByName(x);
+	}
 
 }

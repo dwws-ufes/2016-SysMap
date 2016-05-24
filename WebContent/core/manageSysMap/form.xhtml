@@ -19,7 +19,6 @@
 <ui:define name="sm_owner"> 
 <!-- 	<h:outputText value="#{manageSysMapController.selectedEntity.academic_id}" /> -->
 <!-- 	            	tem que pegar o usuario logado e substituir : (manageSysMapController.selectedEntity.academic_id == 1) -->
-	<h:outputText value="#{msgsSM['manageSysMap.owner']}" rendered="#{manageSysMapController.selectedEntity.academic_id == 1}" />
 </ui:define>
 
 	
@@ -28,17 +27,17 @@
 		<ui:param name="formName" value="#{msgsSM['manageSysMap.title.formulario']}" />
 		<h:form id="form" pt:class="form-horizontal">
 
-				<h:panelGroup id="academic_idField">
-					<ui:decorate template="/resources/sae/formfield.xhtml">
-						<ui:param name="fieldName" value="form:academic_id" />
-						<ui:param name="label" value="academic id" />
-						<p:inputText id="academic_id" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}" 
-									 pt:placeholder="put the academic id to this sysmap" 
-									 value="#{manageSysMapController.selectedEntity.academic_id}"  required="true">
-							<p:ajax event="blur" update="academic_idField" />
-						</p:inputText>
-					</ui:decorate>
-				</h:panelGroup>
+<!-- 				<h:panelGroup id="academic_idField"> -->
+<!-- 					<ui:decorate template="/resources/sae/formfield.xhtml"> -->
+<!-- 						<ui:param name="fieldName" value="form:academic_id" /> -->
+<!-- 						<ui:param name="label" value="academic id" /> -->
+<!-- 						<p:inputText id="academic_id" pt:class="form-control" disabled="#{manageSysMapController.readOnly  or (manageSysMapController.selectedEntity.id!=null)}"  -->
+<!-- 									 pt:placeholder="put the academic id to this sysmap"  -->
+<!-- 									 value="#{manageSysMapController.selectedEntity.academic_id}"  required="true"> -->
+<!-- 							<p:ajax event="blur" update="academic_idField" /> -->
+<!-- 						</p:inputText> -->
+<!-- 					</ui:decorate> -->
+<!-- 				</h:panelGroup> -->
  
 				<h:panelGroup id="nomeField">
 					<ui:decorate template="/resources/sae/formfield.xhtml">
@@ -123,8 +122,8 @@
             					<h:outputText value="#{msgs['crud.button.back']}"/>
             				</a>
                 		</h:panelGroup>
-						
-						<h:panelGroup class="col-sm-3">
+
+                		<h:panelGroup class="col-sm-3">
 							<a  class="btn btn-block btn-info btn-social" jsf:action="#{manageSysMapController.save}" 
 								jsf:update=":form :globalMessages" jsf:rendered="#{!manageSysMapController.readOnly}"><i class="fa  fa-save"></i> 
 								<h:outputText value="#{msgs['crud.button.save']}"/>
@@ -147,6 +146,12 @@
             				<a class="btn btn-block btn-info btn-social" jsf:immediate="true"  jsf:action="#{manageCriteriaController.list}" jsf:rendered="#{manageSysMapController.readOnly}">
             					<i class="fa  fa-file-text"></i> 
             					<h:outputText value="#{msgsSM['manageCriteria.title']}"/>
+            				</a>
+                		</h:panelGroup>
+                		<h:panelGroup class="col-sm-3" style="margin-bottom: 10px">
+            				<a class="btn btn-block btn-info btn-social" jsf:immediate="true"  jsf:action="#{manageRawResultController.list}" jsf:rendered="#{manageSysMapController.readOnly}">
+            					<i class="fa  fa-file-text"></i> 
+            					<h:outputText value="#{msgsSM['manageRawResult.title']}"/>
             				</a>
                 		</h:panelGroup>
 					</h:panelGroup>
@@ -177,6 +182,9 @@
 														
 		      			<p:column headerText="#{msgsSM['manageControlArticle.title.description']}"  style="text-align: center; width:50%;"> 
 		           			<h:outputText value="#{entity.description}" />
+		           		</p:column>
+		           		<p:column headerText="#{msgsSM['manageControlArticle.title.description']}"  style="text-align: center; width:50%;"> 
+		           			<h:outputText value="#{entity.source}" />
 		           		</p:column>
 		        	</p:dataTable>
 		       	</h:form>	        

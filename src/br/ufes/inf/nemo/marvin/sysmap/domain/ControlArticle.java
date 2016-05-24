@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.marvin.sysmap.domain;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -30,6 +31,17 @@ public class ControlArticle extends PersistentObjectSupport implements Comparabl
 	@Size(max = 100)
 	protected String source;
 
+	@ManyToOne
+	protected SysMap sysmap;
+	
+	public SysMap getSysMap(){
+		return sysmap;
+	}
+	
+	public void setSysMap(SysMap sys){
+		this.sysmap = sys;
+	}
+	
 	public String getIdentifier() {
 		return identifier;
 	}

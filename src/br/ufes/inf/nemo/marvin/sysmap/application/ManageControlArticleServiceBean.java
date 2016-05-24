@@ -1,5 +1,7 @@
 package br.ufes.inf.nemo.marvin.sysmap.application;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -21,6 +23,10 @@ public class ManageControlArticleServiceBean extends CrudServiceBean<ControlArti
 	@Override
 	public BaseDAO<ControlArticle> getDAO() {
 		return controlArticleDAO;
+	}
+	
+	public List<ControlArticle> listArticles(){
+		return controlArticleDAO.retrieveAll();
 	}
 
 	@Override

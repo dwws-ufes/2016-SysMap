@@ -4,6 +4,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
+import br.ufes.inf.nemo.marvin.sysmap.application.ManageCriteriaService;
 import br.ufes.inf.nemo.marvin.sysmap.application.ManageSysMapService;
 import br.ufes.inf.nemo.marvin.sysmap.domain.SysMap;
 import br.ufes.inf.nemo.util.ejb3.application.CrudService;

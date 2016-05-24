@@ -1,8 +1,10 @@
 package br.ufes.inf.nemo.marvin.sysmap.domain;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Lob;
@@ -61,6 +63,9 @@ public class SysMap extends PersistentObjectSupport implements Comparable<SysMap
 	@NotNull
 	@Size(max = 255)
 	protected String publicationTypes;
+	
+	@OneToMany(mappedBy="sysmap", cascade = CascadeType.ALL)
+	protected List<ControlArticle> articles;
 	
 //	@ManyToOne
 //	private Academic academic;
@@ -137,6 +142,10 @@ public class SysMap extends PersistentObjectSupport implements Comparable<SysMap
 
 		// If it's the same name, check if it's the same entity.
 		return uuid.compareTo(o.uuid);
+	}
+	
+	public void addControlArticle(ControlArticle article){
+		articles.add(article);
 	}
 
 }

@@ -68,8 +68,8 @@
             				</a>
                 		</h:panelGroup>
                 		<h:panelGroup class="col-sm-3"/>
-						<h:panelGroup class="col-sm-3">
-							<a  class="btn btn-block btn-info btn-social" jsf:action="#{manageControlArticleController.save}" 
+						<h:panelGroup class="col-sm-3"> 					
+							<a  class="btn btn-block btn-info btn-social" jsf:action="#{manageControlArticleController.createEntity}" 
 								jsf:update=":form :globalMessages" jsf:rendered="#{!manageControlArticleController.readOnly}"><i class="fa  fa-save"></i> 
 								<h:outputText value="#{msgs['crud.button.save']}"/>
 							</a>

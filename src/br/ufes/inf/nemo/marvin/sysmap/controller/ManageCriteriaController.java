@@ -9,6 +9,7 @@ import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
 import br.ufes.inf.nemo.marvin.sysmap.application.ManageCriteriaService;
+import br.ufes.inf.nemo.marvin.sysmap.application.ManageSysMapService;
 import br.ufes.inf.nemo.marvin.sysmap.domain.Criteria;
 import br.ufes.inf.nemo.marvin.sysmap.domain.CriteriaType;
 import br.ufes.inf.nemo.util.ejb3.application.CrudService;
@@ -23,6 +24,9 @@ public class ManageCriteriaController extends CrudController<Criteria> {
 	
 	@EJB 
 	private ManageCriteriaService manageCriteriaService;
+	
+	@EJB 
+	private ManageSysMapService manageSysMapService;
 	
 	private static List<SelectItem> listCriteriaType;
 	

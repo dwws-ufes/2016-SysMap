@@ -154,10 +154,16 @@
             					<h:outputText value="#{msgsSM['manageRawResult.title']}"/>
             				</a>
                 		</h:panelGroup>
+                		
+                		<p:button class="xxx" href="#{facesContext.externalContext.requestContextPath}/core/manageSysMap" value="RDF" />
+
+                		
+                		
 					</h:panelGroup>
 				</ui:decorate>
 		</h:form>
 	</ui:decorate>
+	
 
 	<ui:fragment rendered="#{manageSysMapController.readOnly}">
 		<ui:decorate template="/resources/sae/form.xhtml">

@@ -53,7 +53,8 @@
 						<p:inputText id="title" pt:class="form-control" disabled="#{manageRawResultController.readOnly  or (manageRawResultController.selectedEntity.id!=null)}" 
 									 pt:placeholder="#{msgsSM['manageRawResult.placeholder.title']}" 
 									 value="#{manageRawResultController.selectedEntity.title}"  required="true">
-							<p:ajax event="blur" update="titleField" />
+<!-- 							<p:ajax event="blur" update="titleField" /> -->
+								<p:ajax event="blur" listener="#{manageRawResultController.suggestDescription}" execute="@this" update="authorsField yearField venueField" />
 						</p:inputText>
 					</ui:decorate>
 				</h:panelGroup>

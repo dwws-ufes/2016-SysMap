@@ -58,7 +58,7 @@ public class ManageControlArticleController extends CrudController<ControlArticl
 	
 	public String createEntity(){
 			selectedEntity.setSysMap(manageSysMapService.retrieveByName(manageSysMapController.getSelectedEntity().getName()));
-			manageSysMapController.getSelectedEntity().addControlArticle(selectedEntity);
+			//manageSysMapController.getSelectedEntity().addControlArticle(selectedEntity);
 		return save();
 	}
 

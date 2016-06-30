@@ -57,14 +57,14 @@ public class ListSysMapInRdfServlet extends HttpServlet {
 	//List<SysMap> maps = sysMapDAO.retrieveAll();
 	Model model = ModelFactory.createDefaultModel();
 	String myNS = "http://localhost:8080/Marvin/core/manageSysMap";
-	String grNS = "http://purl.org/goodrelations/v1#";
+	String grNS = "http://localhost:8080/Marvin/sysmap.xml#";
 	model.setNsPrefix("gr", grNS);
 	Resource grOffering = ResourceFactory.createResource(grNS + "SysMap");
-	Property period = ResourceFactory.createProperty(grNS + "periodo");
+	Property periodo = ResourceFactory.createProperty(grNS + "periodo");
 	Property area = ResourceFactory.createProperty(grNS + "area");
-	Property publication_types = ResourceFactory.createProperty(grNS + "publication");
+	Property publication = ResourceFactory.createProperty(grNS + "publication");
 	Property objective = ResourceFactory.createProperty(grNS + "objective");
-	Property search_string = ResourceFactory.createProperty(grNS + "search_string");
+	Property searchString = ResourceFactory.createProperty(grNS + "searchString");
 	/*Resource grPriceSpecification = ResourceFactory.createResource(grNS +
 	"PriceSpecification");
 	Property gravailabilityStarts = ResourceFactory.createProperty(grNS +
@@ -79,11 +79,11 @@ public class ListSysMapInRdfServlet extends HttpServlet {
 		model.createResource(myNS + "?SM=" + SM)
 			.addProperty(RDF.type, grOffering)
 			.addProperty(RDFS.label, map.getName())
-			.addProperty(period, map.getPeriod())
+			.addProperty(periodo, map.getPeriod())
 			.addProperty(area, map.getArea())
-			.addProperty(publication_types, map.getPublicationTypes())
+			.addProperty(publication, map.getPublicationTypes())
 			.addProperty(objective, map.getObjective())
-			.addProperty(search_string, map.getSearchString());
+			.addProperty(searchString, map.getSearchString());
 		/*.addProperty(RDFS.comment, map.getDescription())
 		.addLiteral(gravailabilityStarts,
 		ResourceFactory.createTypedLiteral(df.format(map.getBegin()),

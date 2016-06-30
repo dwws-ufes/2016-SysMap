@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://localhost:8080/Marvin/sysmap.xml#"
+     xml:base="http://localhost:8080/Marvin/sysmap.xml"
+     xmlns:sysmap="http://localhost:8080/Marvin/sysmap.xml#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://localhost:8080/Marvin/sysmap.xml"/>
+    
+
+
+
+
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#SysMap -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#area -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#area">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#label -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#label">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#objective -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#objective">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#periodo -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#periodo">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#publication -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#publication">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#searchString -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#searchString">
+        <rdfs:subPropertyOf rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#area -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#area">
+        <rdfs:domain rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#label -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#label">
+        <rdfs:domain rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#objective -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#objective">
+        <rdfs:domain rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#period -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#period">
+        <rdfs:domain rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#publicationTypes -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#publicationTypes">
+        <rdfs:domain rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#searchString -->
+
+    <owl:DatatypeProperty rdf:about="http://localhost:8080/Marvin/sysmap.xml#searchString">
+        <rdfs:domain rdf:resource="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8080/Marvin/sysmap.xml#SysMap -->
+
+    <owl:Class rdf:about="http://localhost:8080/Marvin/sysmap.xml#SysMap"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://localhost:8080/Marvin/sysmap.xml#SysMap">
+        <SysMap></SysMap>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
